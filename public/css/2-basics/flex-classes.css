@@ -1,0 +1,228 @@
+/* Main flex */
+.flex {
+    display: flex;
+    display: -webkit-flex;
+}
+
+/* Flex direction */
+.flex--row {
+    flex-direction: row;
+    -webkit-flex-direction: row;
+}
+
+.flex--row-reverse {
+    flex-direction: row-reverse;
+    -webkit-flex-direction: row-reverse;
+}
+
+.flex--column {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+}
+
+.flex--column-reverse {
+    flex-direction: column-reverse;
+    -webkit-flex-direction: column-reverse;
+}
+
+/* Flex grow */
+.flex--grow-1 {
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+}
+
+.flex--grow-2 {
+    flex-grow: 2;
+    -webkit-flex-grow: 2;
+}
+
+.flex--grow-3 {
+    flex-grow: 3;
+    -webkit-flex-grow: 3;
+}
+
+.flex--grow-4 {
+    flex-grow: 4;
+    -webkit-flex-grow: 4;
+}
+
+.flex--grow-5 {
+    flex-grow: 5;
+    -webkit-flex-grow: 5;
+}
+
+/* Flex order */
+.flex--order-0 {
+    order: 0;
+}
+
+.flex--order-1 {
+    order: 1;
+}
+
+.flex--order-2 {
+    order: 2;
+}
+
+.flex--order-3 {
+    order: 3;
+}
+
+.flex--order-4 {
+    order: 4;
+}
+
+.flex--order-5 {
+    order: 5;
+}
+
+/* Flex shrink */
+.flex--shrink-0 {
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+}
+
+.flex--shrink-1 {
+    flex-shrink: 1;
+    -webkit-flex-shrink: 1;
+}
+
+.flex--shrink-2 {
+    flex-shrink: 2;
+    -webkit-flex-shrink: 2;
+}
+
+.flex--shrink-3 {
+    flex-shrink: 3;
+    -webkit-flex-shrink: 3;
+}
+
+.flex--shrink-4 {
+    flex-shrink: 4;
+    -webkit-flex-shrink: 4;
+}
+
+.flex--shrink-5 {
+    flex-shrink: 5;
+    -webkit-flex-shrink: 5;
+}
+
+/* Flex wrap */
+.flex--wrap {
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+
+.flex--wrap-reverse {
+    flex-wrap: wrap-reverse;
+    -webkit-flex-wrap: wrap-reverse;
+}
+
+/* Align self */
+.flex--align-self-start {
+    align-self: flex-start;
+    -webkit-align-self: flex-start;
+}
+
+.flex--align-self-end {
+    align-self: flex-end;
+    -webkit-align-self: flex-end;
+}
+
+.flex--align-self-center {
+    align-self: center;
+    -webkit-align-self: center;
+}
+
+.flex--align-self-baseline {
+    align-self: baseline;
+    -webkit-align-self: baseline;
+}
+
+.flex--align-self-stretch {
+    align-self: stretch;
+    -webkit-align-self: stretch;
+}
+
+/* Align content */
+.flex--align-content-start {
+    align-content: flex-start;
+    -webkit-align-content: flex-start;
+}
+
+.flex--align-content-end {
+    align-content: flex-end;
+    -webkit-align-content: flex-end;
+}
+
+.flex--align-content-center {
+    align-content: center;
+    -webkit-align-content: center;
+}
+
+.flex--align-content-space-between {
+    align-content: space-between;
+    -webkit-align-content: space-between;
+}
+
+.flex--align-content-space-around {
+    align-content: space-around;
+    -webkit-align-content: space-around;
+}
+
+.flex--align-content-stretch {
+    align-content: stretch;
+    -webkit-align-content: stretch;
+}
+
+/* Align items */
+.flex--v-start {
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
+}
+
+.flex--v-end {
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+}
+
+.flex--v-center {
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+.flex--v-baseline {
+    align-items: baseline;
+    -webkit-align-items: baseline;
+}
+
+.flex--v-stretch {
+    align-items: stretch;
+    -webkit-align-items: stretch;
+}
+
+/* Justify content */
+.flex--h-start {
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+}
+
+.flex--h-end {
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+}
+
+.flex--h-center {
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+.flex--h-space-between {
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+
+.flex--h-space-around {
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
