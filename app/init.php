@@ -70,7 +70,7 @@ $GLOBALS['config'] = array(
         'inc_root' => dirname(__DIR__)
     ),
     'app' => array(
-        'default_controller' => 'login',
+        'default_controller' => 'home',
         'default_method' => 'index'
     )
 );

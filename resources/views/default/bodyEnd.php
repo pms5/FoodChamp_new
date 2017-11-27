@@ -6,6 +6,7 @@
 <script type="text/javascript" src="js/functions.js"></script>
 <!-- 2-pages -->
 <!-- bootstrap -->
+<script type="text/javascript" src="js/bootstrap/popper.js"></script>
 <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
 </body>
 </html>

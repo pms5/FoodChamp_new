@@ -25,4 +25,14 @@
     /* Other */
     --bg-color: #eee;
     --accent-color: #448aff;
+
+    /* Pallet */
+    --palletdarkGrey: #333333;
+    --palletGrey: #48474a;
+    --palletlightGrey: #4e4e4e;
+    --palletoffWhite: #eeeeee;
+    --palletWhite: #ffffff;
+    --palletlightRed: #e20505;
+    --palletRed: #bd0404;
+    --palletdarkRed: #920101;
 }
