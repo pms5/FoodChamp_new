@@ -49,7 +49,7 @@ $GLOBALS['config'] = array(
     ),
     'lang' => array(
         'default' => 'en',
-        'languages' => 'en', //languages in xml file (format: lang,lang)
+        'languages' => 'en,fr', //languages in xml file (format: lang,lang)
         'xml_loaction' => dirname(__DIR__) . '/resources/lang/lang.xml',
         'expiry' => 604800
     ),

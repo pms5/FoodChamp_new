@@ -2,7 +2,7 @@
 @import url(1-tools/animate.css);
 @import url(1-tools/font-awesome.min.css);
 @import url(1-tools/fonts.css);
-@import url(1-tools/materialize.css);
+/*@import url(1-tools/materialize.min.css);*/
 @import url(1-tools/normalize.css);
 @import url(1-tools/vars.css);
 /* 2 - basics */
@@ -13,5 +13,7 @@
 @import url(2-basics/selection-colors.css);
 @import url(2-basics/typography.css);
 /* 3 - modules */
-@import url(3-modules/mobile.css) only screen and (max-width: 600px);
+/*@import url(3-modules/mobile.css) only screen and (max-width: 600px);*/
+/* bootstrap */
+@import url(bootstrap/bootstrap.min.css);
 /* 4 - pages */
