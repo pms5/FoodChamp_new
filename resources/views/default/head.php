@@ -7,7 +7,7 @@ $title = $lang->getText('title');
 <html dir="ltr" lang="<?= $lang->getLang(); ?>">
 <head>
     <base href="<?= $_SERVER['REQUEST_URI'] ?>">
-    <meta charset="UTF-8">
+    <meta charset="<?= Config::get('meta/charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="author" content="<?= Config::get('meta/author'); ?>">

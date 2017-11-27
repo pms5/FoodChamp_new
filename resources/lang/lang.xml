@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
+    <login>
+        <title>
+            <en>Food Champ - Login</en>
+        </title>
+    </login>
     <home>
         <title>
-            <en>Your title</en>
+            <en>Food Champ - Home</en>
         </title>
     </home>
 </root>

@@ -4,17 +4,17 @@ session_start();
 $GLOBALS['config'] = array(
     'mysql' => array(
         'host' => '', //Enter host here
-        'username' => '', //Enter username here
-        'password' => '', //Enter password here
-        'db' => '' //Enter db here
+        'username' => 'dbi389333', //Enter username here
+        'password' => 'i389333', //Enter password here
+        'db' => 'dbi389333' //Enter db here
     ),
     'db' => array(
-        'user_table_name' => 'users',
-        'user_confirm_table_name' => 'users_confirm',
-        'user_forgot_table_name' => 'users_forgot',
-        'user_session_table_name' => 'users_session',
+        'user_table_name' => 'user',
+        'user_confirm_table_name' => 'user_confirm',
+        'user_forgot_table_name' => 'user_forgot',
+        'user_session_table_name' => 'user_session',
         'groups_table_name' => 'groups',
-        'user_uname_field_name' => 'username'
+        'user_uname_field_name' => 'email'
     ),
     'remember' => array(
         'cookie_name' => 'hash',
@@ -44,8 +44,8 @@ $GLOBALS['config'] = array(
         'valid_time' => '+1 hour'
     ),
     'captcha' => array(
-        'secret_key' => '',
-        'public_key' => ''
+        'secret_key' => '6LfvjjoUAAAAAI8HjXAsIV4VM86jzPKE4DYh4bV5',
+        'public_key' => '6LfvjjoUAAAAANRHJIaB2vVH2Dd8EvAdh2bNACht'
     ),
     'lang' => array(
         'default' => 'en',
@@ -55,11 +55,11 @@ $GLOBALS['config'] = array(
     ),
     'meta' => array(
         'charset' => 'UTF-8',
-        'author' => '',
-        'description' => '',
+        'author' => 'Food Champ',
+        'description' => 'Food Champ',
         'keywords' => 'HTML,CSS,XML,JavaScript,PHP',
         'safari-pt-background' => '#e20505', // safari pinned tab bg (silhouet)
-        'web-app-title' => '', //apple and android web app title
+        'web-app-title' => 'Food Champ', //apple and android web app title
         'theme-color' => '#e20505', //mobile status bar color
         'IE-tile-color' => '#e20505' //Windows pinned to start background
     ),
@@ -70,7 +70,7 @@ $GLOBALS['config'] = array(
         'inc_root' => dirname(__DIR__)
     ),
     'app' => array(
-        'default_controller' => 'home',
+        'default_controller' => 'login',
         'default_method' => 'index'
     )
 );
