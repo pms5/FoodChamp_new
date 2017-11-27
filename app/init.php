@@ -8,6 +8,14 @@ $GLOBALS['config'] = array(
         'password' => '', //Enter password here
         'db' => '' //Enter db here
     ),
+    'db' => array(
+        'user_table_name' => 'users',
+        'user_confirm_table_name' => 'users_confirm',
+        'user_forgot_table_name' => 'users_forgot',
+        'user_session_table_name' => 'users_session',
+        'groups_table_name' => 'groups',
+        'user_uname_field_name' => 'username'
+    ),
     'remember' => array(
         'cookie_name' => 'hash',
         'cookie_expiry' => 604800
@@ -46,11 +54,12 @@ $GLOBALS['config'] = array(
         'expiry' => 604800
     ),
     'meta' => array(
-        'author' => 'Food Champ',
-        'description' => 'Food Champ Calorie Tracker',
+        'charset' => 'UTF-8',
+        'author' => '',
+        'description' => '',
         'keywords' => 'HTML,CSS,XML,JavaScript,PHP',
         'safari-pt-background' => '#e20505', // safari pinned tab bg (silhouet)
-        'web-app-title' => 'Food Champ', //apple and android web app title
+        'web-app-title' => '', //apple and android web app title
         'theme-color' => '#e20505', //mobile status bar color
         'IE-tile-color' => '#e20505' //Windows pinned to start background
     ),

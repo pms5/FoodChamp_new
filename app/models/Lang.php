@@ -1,28 +1,26 @@
 <?php
 class Lang {
     //////// get lang data
-    // $lang_class = new Lang();
-    // $current_page = 'home';
-    // $lang = Cookie::get('lang');
-    // $title = $lang_class->xml_lang->$current_page->title->$lang;
+    // $lang = new Lang();
+    // $title = $lang->getText('title');
     //////// set lang
     // $lang_class = new Lang();
-    // $lang_class->set_lang('fr');
+    // $lang_class->setLang('fr');
 
-    public  $xml_lang = null;
-    private $page;
+    private $_xmlLang = null;
+    private $_page;
 
     public function __construct() {
-        $this->xml_lang = simplexml_load_file(Config::get('lang/xml_loaction'));
-        $this->page = $GLOBALS['page'];
-        $this->get_lang();
+        $this->_xmlLang = simplexml_load_file(Config::get('lang/xml_loaction'));
+        $this->_page = $GLOBALS['page'];
+        $this->getLang();
     }
 
-    public function get_lang() {
+    public function getLang() {
         if(Cookie::exists('lang')) {
             $lang = Cookie::get('lang');
         } else {
-            $lang = $this->get_client_lang();
+            $lang = $this->getClientLang();
             Cookie::put('lang', $lang, Config::get('lang/expiry'));
         }
 
@@ -35,7 +33,7 @@ class Lang {
         return $lang;
     }
 
-    public function set_lang($lang) {
+    public function setLang($lang) {
         if(isset($lang) && $lang !== '' ) {
             $langarray = explode(',', Config::get('lang/languages'));
             if(in_array($lang, $langarray)) {
@@ -46,7 +44,7 @@ class Lang {
         return false;
     }
 
-    private function get_client_lang(){
+    private function getClientLang(){
         $langarray = explode(',', Config::get('lang/languages'));
     	if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
     		$langs = explode(',',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
@@ -60,17 +58,17 @@ class Lang {
     }
 
     public function setPage($page){
-        $this->page = $page;
+        $this->_page = $page;
     }
 
-    public function get_text($item) {
-        $page = $this->page;
+    public function getText($item) {
+        $page = $this->_page;
 
         if(Cookie::exists('lang')) {
             $lang = Cookie::get('lang');
         } else {
-            $lang = $this->get_client_lang();
+            $lang = $this->getClientLang();
         }
-        return $this->xml_lang->$page->$item->$lang;
+        return $this->_xmlLang->$page->$item->$lang;
     }
 }

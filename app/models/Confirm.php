@@ -13,28 +13,28 @@ class Confirm {
     }
 
     public function setup($username) {
-        $result = $this->_db->get('users', array('username', '=', $username))->first();
+        $result = $this->_db->get(Config::get('db/user_table_name'), array('username', '=', $username))->first();
         $id = $result->id;
         $email = $result->email;
         $name = $result->name;
         $confirm_code = Hash::unique();
 
-        $check = $this->_db->get('users_confirm', array('user_id', '=', $id));
+        $check = $this->_db->get(Config::get('db/user_confirm_table_name'), array('user_id', '=', $id));
         if($check->count()){
             $id_update = $check->first()->id;
-            if($this->_db->update('users_confirm', $id_update, array(
+            if($this->_db->update(Config::get('db/user_confirm_table_name'), $id_update, array(
                 'confirm_code' => $confirm_code,
-                'invalid_date' => date('Y-m-d H:i:s', strtotime(Config::get('confirm/valid_time')))
+                'invalid_date' => date('Y-m-d H:i:s', strtotime(Config::get('db/confirm/valid_time')))
             ))) {
                 if($this->_mail->send_confirm($email, $id, $confirm_code, $name)) {
                     return true;
                 }
             }
         } else {
-            if($this->_db->insert('users_confirm', array(
+            if($this->_db->insert(Config::get('db/user_confirm_table_name'), array(
                 'user_id' => $id,
                 'confirm_code' => $confirm_code,
-                'invalid_date' => date('Y-m-d H:i:s', strtotime(Config::get('confirm/valid_time')))
+                'invalid_date' => date('Y-m-d H:i:s', strtotime(Config::get('db/confirm/valid_time')))
             ))) {
                 if($this->_mail->send_confirm($email, $id, $confirm_code, $name)) {
                     return true;
@@ -42,7 +42,7 @@ class Confirm {
             }
         }
 
-        $this->_db->delete('users', array('username', '=', $username));
+        $this->_db->delete(Config::get('db/user_table_name'), array('username', '=', $username));
         $this->addError("Fatal error");
         return false;
     }
@@ -50,12 +50,12 @@ class Confirm {
     public function check() {
         if(Input::exists('get')) {
             $id = Input::get('id');
-            $check = $this->_db->get('users_confirm', array('user_id','=',$id));
+            $check = $this->_db->get(Config::get('db/user_confirm_table_name'), array('user_id','=',$id));
             $confirm_code_db = $check->first()->confirm_code;
             $invalid_date_db = $check->first()->invalid_date;
 
             if($check->count()) {
-                $confirmed = $this->_db->get('users', array('id', '=', $id))->first()->confirmed;
+                $confirmed = $this->_db->get(Config::get('db/user_table_name'), array('id', '=', $id))->first()->confirmed;
 
                 if($confirmed !== "1") {
 
@@ -67,7 +67,7 @@ class Confirm {
                             ),$id);
                             $this->delete($id);
                         } else {
-                            $username = $this->_db->get('users', array('id', '=', $id))->first()->username;
+                            $username = $this->_db->get(Config::get('db/user_table_name'), array('id', '=', $id))->first()->username;
 
                             if($this->setup($username)) {
                                 $this->addError("This link is expired, a new link is sent to your email");
@@ -96,7 +96,7 @@ class Confirm {
     }
 
     private function delete($id) {
-        if($this->_db->delete('users_confirm', array('user_id','=',$id))) {
+        if($this->_db->delete(Config::get('db/user_confirm_table_name'), array('user_id','=',$id))) {
             return true;
         }
 

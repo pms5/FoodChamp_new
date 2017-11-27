@@ -1,8 +1,9 @@
 <?php
 class File {
     private $_errors = array();
+    private $_fileName = null;
 
-    public function force_download($dir, $file) {
+    public function forceDownload($dir, $file) {
         if ((isset($dir))&&(!empty($dir))&&(isset($file))&&(file_exists($dir.$file))) {
            header("Content-type: application/force-download");
            header('Content-Disposition: inline; filename="' . $dir.$file . '"');
@@ -17,14 +18,15 @@ class File {
         return false;
     }
 
-    public function save($file, $save_dir, $save_name, $remote = false, $overwrite = true, $disallowed = array(), $maxsize = null) {
+    public function save($file, $saveDir, $saveName, $remote = false, $overwrite = true, $disallowed = array(), $maxsize = null) {
         $this->_errors = array();
         //save name no extension
         //save dir relative path from root
         $extension = end(explode('.', $file));
-        $save_name = $save_name.'.'.$extension;
+        $saveName = String::createSlug($saveName);
+        $saveName = $saveName.'.'.$extension;
 
-        if(isset($file) && isset($save_dir) && isset($save_name)) {
+        if(isset($file) && isset($saveDir) && isset($saveName)) {
             if($remote == true) {
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $file);
@@ -38,7 +40,7 @@ class File {
                 $size = filesize($file);
             }
 
-            if(!file_exists(Config::get('url/inc_root') . '/'.$save_dir)) {
+            if(!file_exists(Config::get('url/inc_root') . '/'.$saveDir)) {
                 $this->addError('save directory does not exists');
                 return $this;
             }
@@ -49,7 +51,7 @@ class File {
             }
 
             if($overwrite == false) {
-                if(file_exists(Config::get('url/inc_root') . '/'.$save_dir.$save_name)) {
+                if(file_exists(Config::get('url/inc_root') . '/'.$saveDir.$saveName)) {
                     $this->addError('file already exsists');
                     return $this;
                 }
@@ -71,7 +73,8 @@ class File {
 
             $file = file_get_contents($file);
 
-            file_put_contents(Config::get('url/inc_root') . '/'.$save_dir.$save_name, $file);
+            file_put_contents(Config::get('url/inc_root') . '/'.$saveDir.$saveName, $file);
+            $this->_fileName = $saveName;
             return $this;
         }
 
@@ -84,6 +87,10 @@ class File {
 
     public function errors() {
         return $this->_errors;
+    }
+
+    public function getFileName() {
+        return $this->_fileName;
     }
 
     public function delete($dir, $file) {

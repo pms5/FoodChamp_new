@@ -1,5 +1,5 @@
 {
-    "name": "daanaerts",
+    "name": "",
     "icons": [
         {
             "src": "/_assets/img/favico/android-chrome-192x192.png",
@@ -14,6 +14,6 @@
     ],
     "theme_color": "#ffffff",
     "background_color": "#2f3ba2",
-    "start_url": "https://daanaerts.com/",
+    "start_url": "",
     "display": "standalone"
 }

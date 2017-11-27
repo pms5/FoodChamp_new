@@ -6,7 +6,7 @@ class Mail {
         $this->_db = DB::getInstance();
     }
 
-    public function send_confirm($to, $id, $cc, $name = '') {
+    public function sendConfirm($to, $id, $cc, $name = '') {
         $confirm_location = Config::get('confirm/location');
         $from = Config::get('confirm/from');
         $reply_to = Config::get('confirm/reply_to');
@@ -47,7 +47,7 @@ class Mail {
         return false;
     }
 
-    public function send_forgot($to, $id, $forgot_code, $name = '') {
+    public function sendForgot($to, $id, $forgot_code, $name = '') {
         $forgot_location = Config::get('forgot/location');
         $from = Config::get('forgot/from');
         $reply_to = Config::get('forgot/reply_to');

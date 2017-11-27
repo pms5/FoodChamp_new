@@ -27,15 +27,15 @@ class User {
     }
 
     public function create($fields = array()) {
-        if(!$this->_db->insert('users', $fields)) {
+        if(!$this->_db->insert(Config::get('db/user_table_name'), $fields)) {
             throw new Exception('There was a problem creating an account.');
         }
     }
 
     public function find($user = null) {
         if ($user) {
-            $field = (is_numeric($user)) ? 'id' : 'username';
-            $data = $this->_db->get('users', array($field, '=', $user));
+            $field = (is_numeric($user)) ? 'id' : Config::get('db/user_uname_field_name');
+            $data = $this->_db->get(Config::get('db/user_table_name'), array($field, '=', $user));
 
             if($data->count()) {
                 $this->_data = $data->first();
@@ -58,10 +58,10 @@ class User {
                         Session::put($this->_sessionName, $this->data()->id);
                         if ($remember) {
                             $hash = Hash::unique();
-                            $hashCheck = $this->_db->get('users_session', array('user_id', '=', $this->data()->id));
+                            $hashCheck = $this->_db->get(Config::get('db/user_session_table_name'), array('user_id', '=', $this->data()->id));
 
                             if(!$hashCheck->count()) {
-                                $this->_db->insert('users_session', array(
+                                $this->_db->insert(Config::get('db/user_session_table_name'), array(
                                     'user_id' => $this->data()->id,
                                     'hash' => $hash
                                 ));
@@ -87,7 +87,7 @@ class User {
 
     public function logout() {
 
-        $this->_db->delete('users_session', array('user_id', '=', $this->data()->id));
+        $this->_db->delete(Config::get('db/user_session_table_name'), array('user_id', '=', $this->data()->id));
 
         Session::delete($this->_sessionName);
         Cookie::delete($this->_cookieName);
@@ -98,7 +98,7 @@ class User {
             $id = $this->data()->id;
         }
 
-        if(!$this->_db->update('users', $id, $fields)) {
+        if(!$this->_db->update(Config::get('db/user_table_name'), $id, $fields)) {
             throw new Exception('There was a problem updating.');
         }
     }
@@ -112,7 +112,7 @@ class User {
     }
 
     public function hasPermission($key) {
-        $group = $this->_db->get('groups', array('id', '=', $this->data()->group));
+        $group = $this->_db->get(Config::get('db/groups_table_name'), array('id', '=', $this->data()->group));
 
         if ($group->count()) {
             $permissions = json_decode($group->first()->permissions, true);

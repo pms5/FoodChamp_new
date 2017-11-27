@@ -1,10 +1,10 @@
 <?php
 $lang = new Lang();
-$title = $lang->get_text('title');
+$title = $lang->getText('title');
 ?>
 
 <!DOCTYPE html>
-<html dir="ltr" lang="<?= $lang->get_lang(); ?>">
+<html dir="ltr" lang="<?= $lang->getLang(); ?>">
 <head>
     <base href="<?= $_SERVER['REQUEST_URI'] ?>">
     <meta charset="UTF-8">

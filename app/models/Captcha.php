@@ -1,6 +1,6 @@
 <?php
 class Captcha {
-    private function get_json($user_response) {
+    private function getJson($user_response) {
         $fields_string = '';
         $fields = array(
             'secret' => Config::get('captcha/secret_key'),
@@ -23,7 +23,7 @@ class Captcha {
     }
 
     public function check($user_response){
-        $res = $this->get_json($user_response);
+        $res = $this->getJson($user_response);
         return $res['success'];
     }
 }
