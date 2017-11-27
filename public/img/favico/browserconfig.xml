@@ -2,11 +2,11 @@
 <browserconfig>
     <msapplication>
         <tile>
-            <square70x70logo src="/_assets/img/favico/mstile-70x70.png"/>
-            <square150x150logo src="/_assets/img/favico/mstile-150x150.png"/>
-            <square310x310logo src="/_assets/img/favico/mstile-310x310.png"/>
-            <wide310x150logo src="/_assets/img/favico/mstile-310x150.png"/>
-            <TileColor>#ffffff</TileColor> <!-- IE Tile color default (changeable in meta tags)-->
+            <square70x70logo src="mstile-70x70.png"/>
+            <square150x150logo src="mstile-150x150.png"/>
+            <square310x310logo src="mstile-310x310.png"/>
+            <wide310x150logo src="mstile-310x150.png"/>
+            <TileColor>#e20505</TileColor>
         </tile>
     </msapplication>
 </browserconfig>

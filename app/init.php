@@ -3,7 +3,7 @@ session_start();
 
 $GLOBALS['config'] = array(
     'mysql' => array(
-        'host' => '', //Enter host here
+        'host' => 'studmysql01.fhict.local', //Enter host here
         'username' => 'dbi389333', //Enter username here
         'password' => 'i389333', //Enter password here
         'db' => 'dbi389333' //Enter db here
@@ -49,7 +49,7 @@ $GLOBALS['config'] = array(
     ),
     'lang' => array(
         'default' => 'en',
-        'languages' => 'en,fr', //languages in xml file (format: lang,lang)
+        'languages' => 'en', //languages in xml file (format: lang,lang)
         'xml_loaction' => dirname(__DIR__) . '/resources/lang/lang.xml',
         'expiry' => 604800
     ),
@@ -70,7 +70,7 @@ $GLOBALS['config'] = array(
         'inc_root' => dirname(__DIR__)
     ),
     'app' => array(
-        'default_controller' => 'home',
+        'default_controller' => 'login',
         'default_method' => 'index'
     )
 );

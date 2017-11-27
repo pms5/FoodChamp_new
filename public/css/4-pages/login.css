@@ -1,0 +1,295 @@
+body {
+    overflow-x: hidden;
+    min-width: 500px;
+}
+
+/*HEADER*/
+header {
+    height: 80px;
+    position: relative;
+    width: 100%;
+}
+
+header .top {
+    width: 100%;
+    height:100%;
+    background: #e20505;
+}
+
+header .top .white {
+    width: 720px;
+    height:100%;
+    position: absolute;
+    background:white;
+    left:calc(50% - 360px);
+}
+
+header .top .white .triangle.left {
+    margin:-40px 0 0 -9px;
+    position: absolute;
+    left:0;
+    top:0;
+    width: 0;
+    height: 0;
+    border-top: 58px solid transparent;
+    border-bottom: 58px solid transparent;
+    border-right: 58px solid #e20505;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+header .top .white .triangle.right {
+    margin:-40px 0 0 -9px;
+    position: absolute;
+    right: -9px;
+    top:-40px;
+    margin:0;
+    width: 0;
+    height: 0;
+    border-top: 58px solid transparent;
+    border-bottom: 58px solid transparent;
+    border-right: 58px solid #e20505;
+    -webkit-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+header .logo-wrapper {
+    position:absolute;
+    width:100%;
+    top:0;
+}
+
+header .logo-wrapper .inner {
+    width:700px;
+    height:400px;
+    margin: 0 auto;
+}
+
+header .logo-wrapper .inner img {
+    width:100%;
+    height:100%;
+}
+
+/*LOWER*/
+.lower {
+    margin-top:300px;
+    width:100%;
+    position: relative;
+}
+
+.lower .right, .lower .left {
+    width:50%;
+    height:100%;
+}
+
+.lower .left form .field {
+    position: relative;
+}
+
+.lower .left form .field:nth-child(1)  {
+    margin:0 0 40px 0;
+}
+
+.lower .left form .field:nth-child(2), .lower .left form .field:nth-child(3) {
+    margin: 10px 0;
+}
+
+.lower .left form .field label.absolute {
+    text-align: left;
+    position: absolute;
+    width:180px;
+    left: 0px;
+    top:-30px;
+    font-size:18px;
+}
+
+.lower .left form .field input[type="email"], .lower .left form .field input[type="password"] {
+    width: 390px;
+    height:50px;
+    font-size:28px;
+    border: 3pt solid #4e4e4e;
+    padding:5px;
+    outline: none;
+}
+
+.lower .left form .field input:hover, .lower .left form .field input:focus{
+    border-color: #e20505;
+}
+
+/*CHECKBOX*/
+.container {
+    cursor: pointer;
+    font-size:18px;
+}
+
+.container input {
+  opacity: 0;
+  height:calc(25px + 6pt);
+  width:40px;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border:3pt solid #4e4e4e;
+}
+
+.container:hover input ~ .checkmark {
+  border-color: #e20505;
+}
+
+.container input:checked ~ .checkmark {
+    background: #e20505;
+    border-color: #e20505;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*WRAP*/
+.wrap {
+    width:100%;
+    position: relative;
+    margin-bottom:10px;
+}
+
+.wrap input {
+    width:calc(50% - 10px);
+    height:60px;
+    border:0;
+    outline: none;
+    background: #4e4e4e;
+    font-size: 26px;
+    color:white;
+    cursor: pointer;
+}
+
+.wrap input:hover, .wrap input:focus {
+    background: #e20505;
+}
+
+.wrap input:nth-child(1) {
+    margin-right:20px;
+}
+
+/*FORGOT*/
+a.forgot {
+    color: #4e4e4e;
+}
+
+a.forgot:hover, a.forgot:active {
+    color: #e20505;
+}
+
+.errors {
+    margin-top:10px;
+    border-radius: 5px;
+    border: 2px solid #e20505;
+    background:#ff8a80;
+}
+
+.errors ul li {
+    font-size:18px;
+}
+
+/*DIVIDER*/
+.divider {
+    margin: 20px auto;
+    width:95%;
+    height:2px;
+    background: #eeeeee;
+    display: none;
+}
+
+/*RIGHT*/
+.right .text {
+    width:600px;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 1450px) {
+    .lower .right .text {
+        width:500px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .lower .right .text {
+        width:400px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .lower {
+        display:block;
+    }
+
+    .lower .left, .lower .right {
+        width:100%;
+    }
+
+    .lower .right .text {
+        width:90%;
+    }
+
+    .lower .divider {
+        display:block;
+    }
+}
+
+@media screen and (max-width: 723px) {
+    header .top .white {
+        width:100%;
+        left:0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    header .logo-wrapper .inner{
+        width:100%;
+        height: auto;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    body {
+        overflow:scroll;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    header .logo-wrapper {
+        top:25px;
+    }
+}
+
+@media screen and (max-width: 240px) {
+    header .logo-wrapper {
+        top:50px;
+    }
+}
