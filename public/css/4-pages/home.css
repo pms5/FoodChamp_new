@@ -22,3 +22,6 @@
 .bg-palletdarkRed{
     background-color: var(--palletdarkRed)!important;
 }
+.h-nav{
+    height: 50px;
+}
